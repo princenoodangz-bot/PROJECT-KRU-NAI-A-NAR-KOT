@@ -1,0 +1,275 @@
+<!DOCTYPE html><html lang="th"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>ครูในอนาคต - รวมข้อสอบและคอร์สเรียน</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Sarabun', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'Sarabun', 'sans-serif']
+          },
+          colors: {
+            exam: {
+              red: '#FF4343', orange: '#FF8833', purple: '#983BE5',
+              pink: '#E83E8C', cyan: '#00C9E8', teal: '#00B894', amber: '#F59E0B'
+            }
+          }
+        }
+      }
+    }
+</script>
+<style>
+    body { -webkit-tap-highlight-color: transparent; user-select: none; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+</head>
+<body class="bg-[#F7F4EE] text-slate-800 antialiased font-sans flex justify-center min-h-screen">
+
+<div class="w-full max-w-[425px] min-h-screen bg-[#F7F4EE] flex flex-col relative pb-28 shadow-2xl">
+
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-30 bg-[#FBF9F5]/95 backdrop-blur-md border-b border-[#E8DFD3] px-5 pt-3 pb-2.5 flex items-center justify-between">
+    <div class="flex items-center gap-2.5">
+      <div class="w-8 h-8 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 font-bold shrink-0">
+        <i class="fa-solid fa-graduation-cap text-sm"></i>
+      </div>
+      <div>
+        <h1 class="text-[11px] font-semibold text-slate-400 tracking-wider uppercase font-display">EXAM HUB</h1>
+        <p class="text-base font-bold text-slate-800 leading-tight">รวมข้อสอบและคอร์สเรียน</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <button class="w-8 h-8 rounded-full bg-white border border-[#E8DFD3] shadow-sm flex items-center justify-center text-slate-600 active:scale-95 transition-transform">
+        <i class="fa-solid fa-magnifying-glass text-xs"></i>
+      </button>
+      <div class="w-8 h-8 rounded-full bg-[#EFE8DD] border border-[#C2A88A] flex items-center justify-center text-[11px] font-bold text-[#7A5B38]">ครู</div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 px-4 pt-3 space-y-4">
+
+    <!-- Search Bar & Filters -->
+    <section class="space-y-2.5">
+      <div class="relative flex items-center">
+        <i class="fa-solid fa-magnifying-glass text-slate-400 absolute left-3 pointer-events-none text-xs"></i>
+        <input id="searchInput" oninput="handleSearch(this.value)" class="w-full pl-9 pr-4 py-2 bg-white rounded-xl border border-[#E8DFD3] text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-orange-500 shadow-sm" placeholder="ค้นหาชุดข้อสอบ หรือวิชาที่ต้องการ..." type="text">
+      </div>
+      <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-0.5 text-xs font-semibold">
+        <button class="px-3 py-1.5 rounded-full bg-slate-800 text-white shrink-0 shadow-sm">ทั้งหมด</button>
+        <button class="px-3 py-1.5 rounded-full bg-white text-slate-600 border border-[#E8DFD3] shrink-0 hover:bg-slate-50 transition-colors">ภาค ก (ความรู้ทั่วไป)</button>
+        <button class="px-3 py-1.5 rounded-full bg-white text-slate-600 border border-[#E8DFD3] shrink-0 hover:bg-slate-50 transition-colors">ภาค ข (มาตรฐานวิชาชีพ)</button>
+        <button class="px-3 py-1.5 rounded-full bg-white text-slate-600 border border-[#E8DFD3] shrink-0 hover:bg-slate-50 transition-colors">ภาษาอังกฤษ</button>
+      </div>
+    </section>
+
+    <!-- Course Cards Section -->
+    <section class="space-y-3">
+      <div class="flex items-center justify-between px-1">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+          <h2 class="text-sm font-bold text-slate-800">วิชาเรียน & คลังข้อสอบหลัก</h2>
+        </div>
+        <span id="courseCountText" class="text-[11px] text-slate-400 font-medium">ทั้งหมด 3 วิชา</span>
+      </div>
+
+      <!-- Container ที่เรนเดอร์คอร์สจาก API -->
+      <div id="courseCardsList" class="space-y-3">
+        <!-- การ์ดจะถูกใส่ที่นี่อัตโนมัติ -->
+      </div>
+    </section>
+
+    <!-- Recommended Exams Section -->
+    <section class="space-y-2.5 pt-1">
+      <div class="flex items-center justify-between px-1">
+        <div class="flex items-center gap-1.5">
+          <span class="text-amber-500 flex items-center justify-center"><i class="fa-solid fa-star text-xs"></i></span>
+          <h3 class="text-sm font-bold text-slate-800">ข้อสอบแนะนำประจำวัน</h3>
+        </div>
+        <span class="text-xs text-orange-600 font-semibold cursor-pointer">ดูทั้งหมด &gt;</span>
+      </div>
+
+      <div id="recommendedList" class="space-y-2">
+        <!-- รายการข้อสอบแนะนำจะถูกเรนเดอร์จาก API -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Navigation Bar ลอยตัว -->
+  <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[425px] bg-[#FBF9F5]/95 backdrop-blur-md border-t border-[#E8DFD3] px-3 py-2 z-40">
+    <div class="flex items-center justify-around">
+      <a href="index.html" class="flex flex-col items-center gap-1 py-1 px-2 text-slate-400 hover:text-slate-600 transition-colors">
+        <i class="fa-solid fa-house text-sm"></i><span class="text-[10px] font-medium">หน้าแรก</span>
+      </a>
+      <a href="exams.html" class="flex flex-col items-center gap-1 py-1 px-2 text-orange-600 relative transition-transform active:scale-95">
+        <div class="relative">
+          <i class="fa-solid fa-book-open text-sm text-orange-500"></i>
+          <span class="absolute -top-1.5 -right-2 bg-purple-600 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white">2</span>
+        </div>
+        <span class="text-[10px] font-bold text-orange-600">รวมข้อสอบ</span>
+      </a>
+      <a href="exam.html" class="flex flex-col items-center -mt-5 group active:scale-95 transition-transform">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-orange-500 via-orange-400 to-amber-400 flex items-center justify-center text-white shadow-lg shadow-orange-500/25 border-2 border-white">
+          <i class="fa-solid fa-pen-nib text-base"></i>
+        </div>
+        <span class="text-[10px] font-bold text-slate-700 mt-1">ทำข้อสอบ</span>
+      </a>
+      <a href="history.html" class="flex flex-col items-center gap-1 py-1 px-2 text-slate-400 hover:text-slate-600 transition-colors">
+        <i class="fa-solid fa-chart-line text-sm"></i><span class="text-[10px] font-medium">ประวัติ</span>
+      </a>
+      <a href="settings.html" class="flex flex-col items-center gap-1 py-1 px-2 text-slate-400 hover:text-slate-600 transition-colors">
+        <i class="fa-solid fa-gear text-sm"></i><span class="text-[10px] font-medium">ตั้งค่า</span>
+      </a>
+    </div>
+    <div class="w-32 h-1 bg-[#D9CABE] rounded-full mx-auto mt-2 mb-0.5"></div>
+  </nav>
+
+</div>
+
+<script>
+let allCourses = [];
+
+async function loadExamHubData(searchTerm = '') {
+  try {
+    const res = await fetch(`/api/exams?search=${encodeURIComponent(searchTerm)}`);
+    const data = await res.json();
+    allCourses = data.courses || [];
+
+    document.getElementById('courseCountText').innerText = `ทั้งหมด ${allCourses.length} วิชา`;
+
+    // 1. เรนเดอร์การ์ดคอร์ส (3 กล่องข้อมูลตามดีไซน์ต้นฉบับ)
+    const courseCardsList = document.getElementById('courseCardsList');
+    courseCardsList.innerHTML = '';
+
+    allCourses.forEach(c => {
+      const card = document.createElement('div');
+      card.className = `rounded-2xl p-3 bg-gradient-to-r ${c.color_gradient || 'from-[#983BE5] to-[#E83E8C]'} text-white shadow-sm flex items-center justify-between gap-2`;
+      card.innerHTML = `
+        <div class="flex-1 min-w-0 pr-1">
+          <div class="flex items-center text-[11px] text-white/90 font-medium">
+            <span class="inline-flex items-center justify-center w-5 h-5 rounded-md bg-white/20 text-white mr-1.5 text-xs">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <span>คอร์ส</span>
+          </div>
+          <h3 class="text-base font-bold leading-tight mt-1 tracking-tight flex items-center truncate">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-white/20 text-white mr-1.5 text-xs shrink-0">
+              <i class="fa-solid ${c.icon_name || 'fa-book'}"></i>
+            </span>
+            <span class="truncate">${c.title}</span>
+          </h3>
+          <button onclick="location.href='exam.html?subject=${c.id}'" class="mt-2.5 px-3 py-1 rounded-full bg-white text-slate-800 text-[11px] font-bold flex items-center gap-1 shadow-sm active:scale-95 transition-transform shrink-0">
+            <i class="fa-solid fa-circle-play text-xs text-orange-500"></i>
+            <span>เริ่มเรียน</span>
+            <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+          </button>
+        </div>
+        <div class="bg-white rounded-xl py-2 px-2.5 text-center min-w-[76px] w-[82px] shadow-sm text-slate-800 shrink-0">
+          <div class="text-[10px] text-slate-400 font-medium leading-none">ตอบคำถามแล้ว</div>
+          <div class="font-display font-black text-xl text-orange-500 mt-1 leading-none">${c.answered_count}</div>
+          <div class="text-[9px] text-slate-400 leading-none mt-1">ข้อ</div>
+        </div>
+        <div class="bg-white rounded-xl py-2 px-2.5 text-center min-w-[76px] w-[82px] shadow-sm text-slate-800 shrink-0">
+          <div class="text-[10px] text-slate-400 font-medium leading-none">คะแนนล่าสุด</div>
+          <div class="font-display font-black text-lg ${c.latest_score > 0 ? 'text-emerald-600' : 'text-slate-500'} mt-1 leading-none">${c.latest_score > 0 ? c.latest_score : 'รอเริ่ม'}</div>
+          <div class="text-[9px] text-slate-400 leading-none mt-1">${c.latest_score > 0 ? '/ 100 คะแนน' : 'ทำข้อสอบ'}</div>
+        </div>
+      `;
+      courseCardsList.appendChild(card);
+    });
+
+    // 2. เรนเดอร์ข้อสอบแนะนำ
+    const recContainer = document.getElementById('recommendedList');
+    recContainer.innerHTML = '';
+    (data.recommended || []).forEach(r => {
+      const rec = document.createElement('div');
+      rec.className = "bg-white rounded-2xl p-3 border border-[#E9E1D5] shadow-sm flex items-center justify-between gap-3 active:bg-[#FAF7F2] transition-colors cursor-pointer";
+      rec.onclick = () => location.href = `exam.html?examId=${r.id}`;
+      rec.innerHTML = `
+        <div class="flex items-start gap-2.5 flex-1 min-w-0">
+          <span class="w-2.5 h-2.5 rounded-full ${r.tag_color === 'rose' ? 'bg-rose-500' : 'bg-amber-500'} mt-1 shrink-0"></span>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-baseline gap-1.5 flex-wrap">
+              <h4 class="text-xs font-bold text-slate-800 leading-snug">${r.title}</h4>
+              <span class="text-[10px] text-slate-400">${r.subtitle || ''}</span>
+            </div>
+            <div class="flex items-center gap-3 mt-1.5 text-xs text-slate-500">
+              <span class="text-[11px] text-slate-500 flex items-center gap-1"><i class="fa-solid fa-file-lines text-slate-400 text-xs"></i> ${r.question_count} ข้อ</span>
+              <span class="text-[11px] text-slate-500">${r.time_limit_minutes ? 'เวลาทำ: ' + r.time_limit_minutes + ' นาที' : 'หมดอายุ: อีก 7 วัน'}</span>
+              <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full ${r.tag_color === 'rose' ? 'bg-rose-50 text-rose-600' : 'bg-amber-50 text-amber-600'} text-[9px] font-semibold">${r.tag}</span>
+            </div>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-right text-xs text-slate-300 shrink-0"></i>
+      `;
+      recContainer.appendChild(rec);
+    });
+
+  } catch (err) {
+    console.error("Error loading exam hub:", err);
+  }
+}
+
+// ระบบค้นหาข้อสอบแบบ Real-time
+let searchDebounce;
+function handleSearch(val) {
+  clearTimeout(searchDebounce);
+  searchDebounce = setTimeout(() => {
+    loadExamHubData(val);
+  }, 300);
+}
+
+document.addEventListener('DOMContentLoaded', () => loadExamHubData());
+async function toggleSolution() {
+  const q = examQuestions[currentIndex];
+  const solutionBox = document.getElementById('solutionBox');
+  const solutionText = document.getElementById('solutionText');
+
+  if (!solutionBox.classList.contains('hidden')) {
+    solutionBox.classList.add('hidden');
+    return;
+  }
+
+  solutionText.innerText = "กำลังดึงเฉลยจากเซิร์ฟเวอร์...";
+  solutionBox.classList.remove('hidden');
+
+  try {
+    const res = await fetch('/api/exam/solution', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ questionId: q.id })
+    });
+    const data = await res.json();
+    if (data.success) {
+      solutionText.innerHTML = `<strong>คำตอบที่ถูกต้องคือ: ข้อ ${data.correctAnswer}</strong><br>${data.explanation}`;
+    } else {
+      solutionText.innerText = data.error || "ไม่สามารถดึงเฉลยได้";
+    }
+  } catch (e) {
+    solutionText.innerText = "เกิดข้อผิดพลาดในการเชื่อมต่อเซิร์ฟเวอร์";
+  }
+}
+// ปรับขนาดตัวอักษรโจทย์ตามค่าที่ตั้งไว้ใน settings.html
+const userFontSize = localStorage.getItem('kru_font_size') || 'md';
+const qTextElem = document.getElementById('questionText');
+
+if (userFontSize === 'sm') {
+  qTextElem.className = 'font-prompt text-sm md:text-base font-medium text-stone-800 tracking-wide text-left leading-relaxed';
+} else if (userFontSize === 'lg') {
+  qTextElem.className = 'font-prompt text-xl md:text-2xl font-semibold text-stone-800 tracking-wide text-left leading-relaxed';
+} else {
+  qTextElem.className = 'font-prompt text-base md:text-lg font-medium text-stone-800 tracking-wide text-left leading-relaxed';
+}
+</script>
+</body>
+</html>

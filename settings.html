@@ -1,0 +1,180 @@
+<!DOCTYPE html><html class="light" lang="th"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><title>ครูในอนาคต - ตั้งค่า</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container": "#f5ecea", "on-primary": "#ffffff", "on-error": "#ffffff", "on-secondary-fixed-variant": "#50462d", "primary": "#755634", "inverse-primary": "#e8bf95", "on-error-container": "#93000a", "on-tertiary-fixed-variant": "#7b2f0d", "surface-tint": "#775836", "outline": "#81756a", "on-tertiary-container": "#fffbff", "on-secondary": "#ffffff", "primary-fixed": "#ffdcbb", "surface-container-highest": "#e9e1df", "tertiary-container": "#b55b36", "on-secondary-fixed": "#231b06", "surface-variant": "#e9e1df", "surface-container-lowest": "#ffffff", "surface-container-low": "#fbf2f0", "on-background": "#1e1b1a", "on-tertiary": "#ffffff", "tertiary": "#964320", "tertiary-fixed-dim": "#ffb59a", "secondary": "#695d42", "surface-dim": "#e1d8d6", "inverse-on-surface": "#f8efed", "inverse-surface": "#342f2e", "surface-container-high": "#efe6e4", "error-container": "#ffdad6", "surface": "#fff8f6", "outline-variant": "#d3c4b8", "primary-fixed-dim": "#e8bf95", "secondary-fixed-dim": "#d5c5a4", "primary-container": "#906e4a", "on-surface-variant": "#4f453c", "on-primary-fixed-variant": "#5d4121", "on-primary-container": "#fffbff", "on-tertiary-fixed": "#370e00", "surface-bright": "#fff8f6", "on-surface": "#1e1b1a", "secondary-container": "#f2e1bf", "on-secondary-container": "#6f6348", "secondary-fixed": "#f2e1bf", "on-primary-fixed": "#2b1700", "error": "#ba1a1a", "tertiary-fixed": "#ffdbce", "background": "#fff8f6" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter": "1.5rem", "space-lg": "1.5rem", "space-xl": "2.5rem", "space-sm": "0.5rem", "gutter-mobile": "1rem", "margin": "3rem", "space-md": "1rem", "space-xs": "0.25rem", "margin-tablet": "2rem", "margin-mobile": "1.25rem" }, fontFamily: { "body-sm": ["Manrope"], "display-lg": ["Newsreader"], "headline-lg-mobile": ["Newsreader"], "headline-lg": ["Newsreader"], "label-sm": ["Manrope"], "body-md": ["Manrope"], "headline-sm": ["Newsreader"], "label-lg": ["Manrope"], "display-lg-mobile": ["Newsreader"], "label-md": ["Manrope"], "headline-md": ["Newsreader"], "body-lg": ["Manrope"] }, fontSize: { "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }], "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "400" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "0em", "fontWeight": "500" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }], "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }], "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }] } } } }</script><style>@layer base { html, body { width: 100vw; margin: 0; padding: 0; } body { overscroll-behavior-y: none; -webkit-tap-highlight-color: transparent; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style></head>
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen antialiased">
+
+<header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)] pt-safe"><div class="h-16 px-gutter-mobile flex items-center justify-between max-w-md mx-auto"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[22px]">school</span></div><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">ตั้งค่า</h1></div><div class="flex items-center gap-space-sm"><button onclick="location.href='notifications.html'" aria-label="Notifications" class="w-11 h-11 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container/60 transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header>
+
+<main class="flex flex-col relative w-full pt-16 pb-28 bg-surface min-h-screen max-w-md mx-auto"><div class="flex flex-col w-full px-gutter-mobile space-y-space-md">
+
+<!-- Profile Summary Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm border border-surface-container-high/60 relative overflow-hidden">
+  <div class="absolute -right-6 -top-4 w-32 h-32 rounded-full bg-secondary-fixed/40 pointer-events-none blur-xl"></div>
+  <div class="absolute -left-6 -bottom-6 w-24 h-24 rounded-full bg-primary-fixed/30 pointer-events-none blur-lg"></div>
+  <div class="flex items-center gap-space-md relative z-10">
+    <div class="relative shrink-0">
+      <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-primary to-secondary-container shadow-sm">
+        <div class="w-full h-full rounded-full overflow-hidden bg-surface-container border-2 border-surface-container-lowest shadow-inner flex items-center justify-center text-primary font-bold text-xl">
+          ครู
+        </div>
+      </div>
+      <div class="absolute -bottom-0.5 -right-0.5 bg-primary text-on-primary rounded-full p-1 flex items-center justify-center shadow-xs border-2 border-surface-container-lowest">
+        <span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+      </div>
+    </div>
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-2 flex-wrap mb-1">
+        <h2 id="profileNameDisplay" class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate font-semibold">ว่าที่ครูผู้ช่วย</h2>
+        <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-bold border border-secondary-fixed-dim shadow-xs">
+          <span class="material-symbols-outlined text-[13px] text-tertiary" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+          Pro Scholar
+        </span>
+      </div>
+      <div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-xs">
+        <span class="material-symbols-outlined text-[15px] text-outline">badge</span>
+        <span id="profileIdDisplay" class="tracking-wide text-on-surface-variant font-medium">รหัสผู้สอบ: KRU-2569</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 1: Exam Preferences -->
+<section class="space-y-space-xs">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-primary text-[20px]">assignment</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">การตั้งค่าการสอบ (Exam Preferences)</h3>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
+
+<!-- Font Size Selector -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-lg text-label-lg text-on-surface font-medium">ขนาดตัวอักษรข้อสอบ</span>
+<span class="font-label-sm text-label-sm text-primary font-bold" id="font-size-indicator">ปานกลาง (Medium)</span>
+</div>
+<div class="grid grid-cols-3 gap-2 bg-surface-container-low p-1 rounded-lg">
+<button id="btnFontSm" class="font-btn py-1.5 rounded text-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" onclick="setFontSize('sm', this)" type="button">ปกติ</button>
+<button id="btnFontMd" class="font-btn active-size py-1.5 rounded bg-surface-container-lowest text-primary font-bold shadow-xs text-center font-label-md text-label-md transition-all" onclick="setFontSize('md', this)" type="button">ปานกลาง</button>
+<button id="btnFontLg" class="font-btn py-1.5 rounded text-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" onclick="setFontSize('lg', this)" type="button">ใหญ่</button>
+</div>
+</div>
+
+<!-- Real Exam Mode -->
+<div class="flex items-center justify-between gap-space-sm pt-2">
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<p class="font-label-lg text-label-lg text-on-surface font-medium truncate">โหมดจำลองสอบจริง (ซ่อนเฉลยทันที)</p>
+<span class="px-1.5 py-0.2 bg-primary-fixed text-on-primary-fixed text-label-sm font-label-sm rounded text-[10px]">แนะนำ</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">ไม่แสดงคำตอบที่ถูกต้องจนกว่าจะส่งชุดข้อสอบ</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input id="toggleRealMode" onchange="saveTogglePref('real_mode', this.checked)" checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary shadow-inner"></div>
+</label>
+</div>
+
+<!-- Timer Mode & Countdown -->
+<div class="flex items-center justify-between gap-space-sm pt-2">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface font-medium truncate">แสดงเวลานับถอยหลังรวม</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">แสดงนาฬิกาจับเวลาถอยหลังตลอดการทำข้อสอบ</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input id="toggleTimerCountdown" onchange="saveTogglePref('countdown_timer', this.checked)" checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary shadow-inner"></div>
+</label>
+</div>
+
+<!-- 2-min alert toggle -->
+<div class="flex items-center justify-between gap-space-sm pt-2">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface font-medium truncate">เตือนล่วงหน้าเมื่อใกล้หมดเวลา</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">แจ้งเตือนกระพริบเมื่อเหลือเวลา 30 วินาทีสุดท้าย</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input id="toggleWarningAlert" onchange="saveTogglePref('warning_alert', this.checked)" checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary shadow-inner"></div>
+</label>
+</div>
+
+</div>
+</section>
+
+<!-- Section 2: Study Motivation & Goals -->
+<section class="space-y-space-xs">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-primary text-[20px]">alarm</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">การแจ้งเตือนและการเรียน</h3>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<p class="font-label-lg text-label-lg text-on-surface font-medium">แจ้งเตือนเป้าหมายประจำวัน</p>
+<span class="px-2 py-0.5 bg-surface-container text-on-surface-variant font-label-sm text-label-sm rounded-full">19:30 น.</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">เตือนความจำให้ทำข้อสอบสะสมอย่างน้อย 30 ข้อ</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary shadow-inner"></div>
+</label>
+</div>
+</div>
+</section>
+
+<!-- Sign Out Button -->
+<div class="pt-2 pb-4">
+<button onclick="confirmSignOut()" class="w-full py-3.5 px-space-md rounded-xl bg-error-container hover:bg-error-container/80 text-on-error-container font-label-lg text-label-lg font-bold transition-all flex items-center justify-center gap-2 shadow-xs active:scale-98" type="button">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+ออกจากระบบ (Sign Out)
+</button>
+<p class="text-center font-body-sm text-body-sm text-on-surface-variant mt-3 text-xs opacity-75">
+ครูในอนาคต • ระบบทดสอบความรู้เพื่อการเป็นครู
+</p>
+</div>
+
+</div></main>
+
+<!-- Bottom Nav -->
+<nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(41,37,36,0.05)]"><div class="relative max-w-md mx-auto flex items-center justify-around h-20 px-space-xs"><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-12 text-on-surface-variant" href="index.html"><span class="material-symbols-outlined text-[24px]">home</span><span class="font-label-sm text-label-sm">หน้าแรก</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-12 text-on-surface-variant" href="exams.html"><span class="material-symbols-outlined text-[24px]">library_books</span><span class="font-label-sm text-label-sm">รวมข้อสอบ</span></a><div class="relative -top-4 flex flex-col items-center justify-center"><a class="flex items-center justify-center w-14 h-14 rounded-full bg-primary text-on-primary shadow-[0_4px_16px_rgba(117,86,52,0.35)] active:scale-95 transition-all" href="exam.html"><span class="material-symbols-outlined text-[28px]">edit_document</span></a><span class="font-label-sm text-label-sm text-on-surface-variant mt-1.5">ทำข้อสอบ</span></div><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-12 text-on-surface-variant" href="history.html"><span class="material-symbols-outlined text-[24px]">history</span><span class="font-label-sm text-label-sm">ประวัติ</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-12 text-primary font-bold" href="settings.html"><span class="material-symbols-outlined text-[24px]">settings</span><span class="font-label-sm text-label-sm">ตั้งค่า</span></a></div></nav>
+
+<script>
+  function setFontSize(size, btn) {
+    document.querySelectorAll('.font-btn').forEach(b => {
+      b.classList.remove('bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-xs');
+      b.classList.add('text-on-surface-variant');
+    });
+    btn.classList.add('bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-xs');
+    btn.classList.remove('text-on-surface-variant');
+
+    const indicator = document.getElementById('font-size-indicator');
+    if (indicator) {
+      if (size === 'sm') indicator.textContent = 'ปกติ (Regular)';
+      if (size === 'md') indicator.textContent = 'ปานกลาง (Medium)';
+      if (size === 'lg') indicator.textContent = 'ใหญ่ (Large)';
+    }
+    localStorage.setItem('kru_font_size', size);
+  }
+
+  function saveTogglePref(key, value) {
+    localStorage.setItem(`kru_pref_${key}`, value ? 'true' : 'false');
+  }
+
+  function confirmSignOut() {
+    if (confirm('คุณต้องการออกจากระบบหรือไม่?')) {
+      localStorage.removeItem('kru_active_session');
+      localStorage.removeItem('kru_user_info');
+      location.href = 'login.html';
+    }
+  }
+
+  // โหลดค่าที่เคยตั้งไว้
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedSize = localStorage.getItem('kru_font_size') || 'md';
+    if (savedSize === 'sm') setFontSize('sm', document.getElementById('btnFontSm'));
+    else if (savedSize === 'lg') setFontSize('lg', document.getElementById('btnFontLg'));
+    else setFontSize('md', document.getElementById('btnFontMd'));
+  });
+</script>
+</body></html>

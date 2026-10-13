@@ -1,0 +1,116 @@
+<!DOCTYPE html><html class="light" lang="th"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-secondary": "#ffffff", "on-secondary-container": "#6f6348", "on-primary-fixed-variant": "#5d4121", "on-tertiary-fixed-variant": "#7b2f0d", "on-tertiary": "#ffffff", "on-tertiary-container": "#fffbff", "secondary": "#695d42", "primary-container": "#906e4a", "on-primary": "#ffffff", "on-secondary-fixed-variant": "#50462d", "background": "#fff8f6", "inverse-primary": "#e8bf95", "inverse-surface": "#342f2e", "surface-dim": "#e1d8d6", "inverse-on-surface": "#f8efed", "on-primary-container": "#fffbff", "primary-fixed-dim": "#e8bf95", "tertiary-container": "#b55b36", "on-background": "#1e1b1a", "primary-fixed": "#ffdcbb", "tertiary": "#964320", "surface-tint": "#775836", "outline": "#81756a", "on-surface": "#1e1b1a", "tertiary-fixed": "#ffdbce", "surface-container-low": "#fbf2f0", "on-secondary-fixed": "#231b06", "tertiary-fixed-dim": "#ffb59a", "error": "#ba1a1a", "on-surface-variant": "#4f453c", "surface-container-high": "#efe6e4", "secondary-fixed-dim": "#d5c5a4", "on-error": "#ffffff", "surface-container": "#f5ecea", "primary": "#755634", "surface-bright": "#fff8f6", "secondary-fixed": "#f2e1bf", "surface-container-lowest": "#ffffff", "surface": "#fff8f6", "secondary-container": "#f2e1bf", "on-error-container": "#93000a", "error-container": "#ffdad6", "outline-variant": "#d3c4b8", "surface-container-highest": "#e9e1df", "on-tertiary-fixed": "#370e00", "on-primary-fixed": "#2b1700", "surface-variant": "#e9e1df" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-lg": "1.5rem", "space-xs": "0.25rem", "space-xl": "2.5rem", "space-md": "1rem", "margin-tablet": "2rem", "gutter": "1.5rem", "margin-mobile": "1.25rem", "margin": "3rem", "space-sm": "0.5rem", "gutter-mobile": "1rem" }, fontFamily: { "headline-lg": ["Newsreader"], "display-lg": ["Newsreader"], "label-sm": ["Manrope"], "headline-sm": ["Newsreader"], "label-lg": ["Manrope"], "label-md": ["Manrope"], "headline-lg-mobile": ["Newsreader"], "body-md": ["Manrope"], "display-lg-mobile": ["Newsreader"], "headline-md": ["Newsreader"], "body-lg": ["Manrope"], "body-sm": ["Manrope"] } } } }</script><style>@layer base{html,body{width:100vw;min-height:100vh;margin:0;padding:0;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 0.5rem);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style></head>
+<body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen selection:bg-secondary-container selection:text-on-secondary-container">
+
+<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.03)]"><div class="h-16 px-gutter-mobile flex items-center justify-between gap-space-sm max-w-md mx-auto"><div class="flex items-center gap-space-sm min-w-0 flex-1"><div class="flex items-center gap-1.5 shrink-0"><span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-primary">ครูในอนาคต</span></div><div class="h-4 w-px bg-outline-variant/60 shrink-0"></div><div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container/60 shrink-0"></div></div><div class="flex items-center gap-1 shrink-0"><button aria-label="Search" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/40 transition-colors"><span class="material-symbols-outlined text-[22px]">search</span></button><button aria-label="Notifications" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/40 transition-colors relative"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-tertiary ring-2 ring-surface"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header>
+
+<main class="flex-1 flex flex-col relative w-full pt-16 pb-28 px-gutter-mobile bg-surface max-w-md mx-auto"><div class="flex flex-col w-full space-y-4 pb-6">
+
+<!-- 1. นับถอยหลังวันสอบจริง (ดึงข้อมูลจาก Cloudflare D1) -->
+<section class="relative bg-gradient-to-br from-surface-container-lowest via-surface-container to-surface-container-high rounded-xl p-4 shadow-sm overflow-hidden border border-outline-variant/40"><div class="absolute -top-10 -right-10 w-40 h-40 bg-tertiary/10 rounded-full blur-2xl pointer-events-none"></div><div class="flex items-start justify-between relative z-10"><div class="flex-1 pr-2"><div class="flex items-center gap-1.5 mb-1"><span class="material-symbols-outlined text-tertiary text-[20px]" style="font-variation-settings: 'FILL' 1;">timer</span><h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">นับถอยหลังวันสอบจริง</h2><span id="dDayBadge" class="px-2 py-0.5 rounded-full bg-tertiary text-on-tertiary font-label-sm text-[10px] tracking-wider uppercase font-bold">D-14</span></div><p id="targetExamTitleText" class="font-body-sm text-[12px] text-on-surface-variant leading-tight mb-2.5">สอบครูผู้ช่วย สพฐ. รอบทั่วไป • ลุยทบทวนเลย!</p><div class="flex items-center gap-1.5"><div class="flex flex-col items-center justify-center bg-surface-container-lowest/95 rounded-lg px-2.5 py-1.5 min-w-[46px] shadow-sm border border-outline-variant/40"><span id="cdDays" class="font-headline-sm text-[18px] font-extrabold text-tertiary leading-none">14</span><span class="text-[9px] text-on-surface-variant font-medium mt-0.5">วัน</span></div><span class="text-primary font-bold text-[14px]">:</span><div class="flex flex-col items-center justify-center bg-surface-container-lowest/95 rounded-lg px-2.5 py-1.5 min-w-[46px] shadow-sm border border-outline-variant/40"><span id="cdHours" class="font-headline-sm text-[18px] font-extrabold text-primary leading-none">08</span><span class="text-[9px] text-on-surface-variant font-medium mt-0.5">ชั่วโมง</span></div><span class="text-primary font-bold text-[14px]">:</span><div class="flex flex-col items-center justify-center bg-surface-container-lowest/95 rounded-lg px-2.5 py-1.5 min-w-[46px] shadow-sm border border-outline-variant/40"><span id="cdMinutes" class="font-headline-sm text-[18px] font-extrabold text-primary leading-none">32</span><span class="text-[9px] text-on-surface-variant font-medium mt-0.5">นาที</span></div></div></div><div class="shrink-0 relative w-20 h-20 -mr-1 flex items-center justify-center"><img src="https://lh3.googleusercontent.com/aida/AEtjO1WnnLTUlc3B8R3EB5uffpl4-bthYDtx-CYku4vbQeSAYZb_3EujV88k-8LXnKwQDk7dJVvbqEVFyjEuAE0NEmhcq3ucUw9MBspibY-8aNR9wHOVlrWiv5OKlWviTt3zPlnrv8ctCX7t0BxtQpGy3lhVnncQd4KlR3AzqTnxQIzg4vqG0YlodlG4LkYm6DX_95SB8MipeMxp3bKnPIIVzXl2z3lLe1x2-qJIun0nWX-0oBOCylBdvs8yydI" alt="น้องปู ExamPro" class="w-full h-full object-contain drop-shadow-md"></div></div><button onclick="location.href='exam.html'" class="w-full mt-3.5 py-2.5 px-4 rounded-lg bg-gradient-to-r from-tertiary via-tertiary-container to-primary text-on-tertiary font-label-lg text-label-md font-semibold shadow-md active:scale-[0.99] transition-transform flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">menu_book</span><span>เริ่มทบทวนเตรียมสอบ</span></button></section>
+
+<!-- 2. ปฏิทินและตารางสอบ -->
+<section class="bg-surface-container-lowest rounded-xl p-4 shadow-sm border border-outline-variant/40 flex flex-col gap-3"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">calendar_month</span><h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">ปฏิทินและตารางสอบ</h3></div><span class="px-2 py-0.5 rounded-full bg-secondary-container/60 text-on-secondary-container font-label-sm text-[11px] font-semibold">มี.ค. 2025</span></div><div class="grid grid-cols-5 gap-1.5 pt-1"><div class="flex flex-col items-center py-2 px-1 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer text-center"><span class="text-[11px] text-on-surface-variant font-medium">จ.</span><span class="font-headline-sm text-[15px] font-bold text-on-surface mt-0.5">17</span></div><div class="flex flex-col items-center py-2 px-1 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer text-center relative"><span class="text-[11px] text-on-surface-variant font-medium">อ.</span><span class="font-headline-sm text-[15px] font-bold text-on-surface mt-0.5">18</span><span class="w-1.5 h-1.5 rounded-full bg-tertiary mt-1"></span></div><div class="flex flex-col items-center py-2 px-1 rounded-lg bg-primary text-on-primary shadow-sm cursor-pointer text-center"><span class="text-[11px] opacity-90 font-medium">พ.</span><span class="font-headline-sm text-[15px] font-extrabold mt-0.5">19</span><span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed mt-1"></span></div><div class="flex flex-col items-center py-2 px-1 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer text-center relative"><span class="text-[11px] text-on-surface-variant font-medium">พฤ.</span><span class="font-headline-sm text-[15px] font-bold text-on-surface mt-0.5">20</span></div><div class="flex flex-col items-center py-2 px-1 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer text-center relative"><span class="text-[11px] text-on-surface-variant font-medium">ศ.</span><span class="font-headline-sm text-[15px] font-bold text-on-surface mt-0.5">21</span><span class="w-1.5 h-1.5 rounded-full bg-[#ea580c] mt-1"></span></div></div><div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low border border-outline-variant/40 mt-0.5"><div class="flex items-center gap-2.5 min-w-0"><div class="w-8 h-8 rounded-lg bg-secondary-container flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-[18px]">event_upcoming</span></div><div class="min-w-0"><div class="flex items-center gap-1.5"><h5 class="font-label-lg text-label-md text-on-surface font-bold truncate">สอบกลางภาค CS204</h5><span class="text-[10px] px-1.5 py-0.2 rounded bg-tertiary/10 text-tertiary font-semibold shrink-0">อีก 2 วัน</span></div><p class="font-body-sm text-[11px] text-on-surface-variant truncate mt-0.5">ศุกร์ 21 มี.ค. • 09:00 - 11:30 น.</p></div></div><button type="button" class="px-2.5 py-1 rounded-md bg-surface-container text-primary font-label-sm text-[11px] font-bold hover:bg-secondary-container transition-colors shrink-0">ดูตาราง</button></div></section>
+
+<!-- 3. คอร์สและวิชาของฉัน (เรนเดอร์ข้อมูลจริงจาก D1) -->
+<section class="space-y-3">
+  <div class="flex items-center justify-between px-1 mb-1">
+    <div class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary text-[20px]">grid_view</span>
+      <h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">คอร์สและวิชาของฉัน</h3>
+    </div>
+    <a class="font-label-md text-label-md text-primary font-semibold hover:underline flex items-center gap-0.5" href="exams.html">
+      <span>ดูทั้งหมด</span>
+      <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+    </a>
+  </div>
+
+  <div id="courseContainer" class="space-y-3">
+    <!-- รายการวิชาจะถูกโหลดและเรนเดอร์จากฟังก์ชัน API -->
+  </div>
+
+  <!-- หมวดหมู่ด่วน 4 เมนู -->
+  <div class="grid grid-cols-4 gap-2 pt-1"><a class="bg-[#f0f7ff] hover:bg-[#e0efff] border border-[#bfdbfe] transition-all rounded-xl p-2.5 flex flex-col items-center justify-center text-center shadow-sm active:scale-95 group" href="exams.html"><div class="w-9 h-9 rounded-full bg-[#dbeafe] flex items-center justify-center text-[#1d4ed8] mb-1"><span class="material-symbols-outlined text-[20px]">inventory_2</span></div><span class="font-label-sm text-[11px] text-on-surface font-semibold truncate w-full">คลังข้อสอบ</span><span class="text-[10px] text-[#1d4ed8] font-bold mt-0.5 truncate w-full">120+ ชุด</span></a><a class="bg-[#f0fdf4] hover:bg-[#dcfce7] border border-[#bbf7d0] transition-all rounded-xl p-2.5 flex flex-col items-center justify-center text-center shadow-sm active:scale-95 group" href="exams.html"><div class="w-9 h-9 rounded-full bg-[#dcfce7] flex items-center justify-center text-[#15803d] mb-1"><span class="material-symbols-outlined text-[20px]">auto_stories</span></div><span class="font-label-sm text-[11px] text-on-surface font-semibold truncate w-full">คลังความรู้</span><span class="text-[10px] text-[#15803d] font-bold mt-0.5 truncate w-full">สรุปเนื้อหา</span></a><a class="bg-[#faf5ff] hover:bg-[#f3e8ff] border border-[#e9d5ff] transition-all rounded-xl p-2.5 flex flex-col items-center justify-center text-center shadow-sm active:scale-95 group" href="exams.html"><div class="w-9 h-9 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#7e22ce] mb-1"><span class="material-symbols-outlined text-[20px]">edit_note</span></div><span class="font-label-sm text-[11px] text-on-surface font-semibold truncate w-full">แบบฝึกของฉัน</span><span class="text-[10px] text-[#7e22ce] font-bold mt-0.5 truncate w-full">ฝึกฝนทุกวัน</span></a><a class="bg-[#fff7ed] hover:bg-[#ffedd5] border border-[#fed7aa] transition-all rounded-xl p-2.5 flex flex-col items-center justify-center text-center shadow-sm active:scale-95 group" href="exam.html"><div class="w-9 h-9 rounded-full bg-[#ffedd5] flex items-center justify-center text-[#c2410c] mb-1"><span class="material-symbols-outlined text-[20px]">timer</span></div><span class="font-label-sm text-[11px] text-on-surface font-semibold truncate w-full">จำลองข้อสอบ</span><span class="text-[10px] text-[#c2410c] font-bold mt-0.5 truncate w-full">จับเวลาจริง</span></a></div>
+</section>
+
+<!-- 4. คำคมสร้างแรงบันดาลใจ (ดึงจาก D1) -->
+<section class="relative bg-gradient-to-br from-surface-container-lowest to-surface-container-low rounded-xl p-4 shadow-sm border border-outline-variant/40 overflow-hidden"><div class="absolute -right-4 -bottom-4 w-32 h-32 pointer-events-none opacity-20 z-0"><img src="https://lh3.googleusercontent.com/aida/AEtjO1WnnLTUlc3B8R3EB5uffpl4-bthYDtx-CYku4vbQeSAYZb_3EujV88k-8LXnKwQDk7dJVvbqEVFyjEuAE0NEmhcq3ucUw9MBspibY-8aNR9wHOVlrWiv5OKlWviTt3zPlnrv8ctCX7t0BxtQpGy3lhVnncQd4KlR3AzqTnxQIzg4vqG0YlodlG4LkYm6DX_95SB8MipeMxp3bKnPIIVzXl2z3lLe1x2-qJIun0nWX-0oBOCylBdvs8yydI" alt="ExamPro Mascot" class="w-full h-full object-contain"></div><div class="relative z-10 flex items-center justify-between mb-2"><div class="flex items-center gap-1.5 text-primary"><span class="material-symbols-outlined text-[20px] text-primary">format_quote</span><span class="font-label-sm text-label-sm font-semibold tracking-wide text-primary">คำคมสร้างแรงบันดาลใจ</span></div><span class="px-2 py-0.5 rounded-full bg-secondary-container/60 text-on-secondary-container font-label-sm text-[10px] font-semibold">ประจำวัน</span></div><blockquote id="quoteText" class="relative z-10 font-body-md text-[13px] text-on-surface leading-relaxed italic pl-1 border-l-2 border-secondary-fixed">“กำลังโหลดคำคมประจำวัน...”</blockquote><div class="relative z-10 flex items-center justify-between mt-2.5 pt-2 border-t border-outline-variant/40 text-[11px] text-on-surface-variant font-medium"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-tertiary text-[14px]">favorite</span> ครูในอนาคต</span></div></section>
+</div>
+</main>
+
+<!-- Navigation Bar 5 ปุ่ม ลอยตัวตรงกลาง -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl border-t border-outline-variant/40 shadow-[0_-4px_16px_rgba(0,0,0,0.06)]"><div class="relative max-w-md mx-auto px-2"><div class="absolute -top-5 left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-auto z-10"><a href="exam.html" class="w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md ring-4 ring-surface-container-lowest hover:bg-primary-container transition-transform active:scale-95"><span class="material-symbols-outlined text-[28px]">quiz</span></a><span class="font-label-sm text-[11px] mt-1 text-on-surface-variant font-medium tracking-tight">ทำข้อสอบ</span></div><div class="grid grid-cols-5 items-center h-16 pt-1"><a aria-current="page" class="flex flex-col items-center justify-center transition-colors text-primary font-bold" href="index.html"><span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">home</span><span class="font-label-sm text-[11px] mt-0.5 font-bold tracking-tight text-primary">หน้าแรก</span></a><a class="flex flex-col items-center justify-center transition-colors text-on-surface-variant hover:text-on-surface" href="exams.html"><span class="material-symbols-outlined text-[24px]">library_books</span><span class="font-label-sm text-[11px] mt-0.5 font-medium tracking-tight">รวมข้อสอบ</span></a><div class="h-full w-full pointer-events-none"></div><a class="flex flex-col items-center justify-center transition-colors text-on-surface-variant hover:text-on-surface" href="history.html"><span class="material-symbols-outlined text-[24px]">assignment</span><span class="font-label-sm text-[11px] mt-0.5 font-medium tracking-tight">ประวัติ</span></a><a class="flex flex-col items-center justify-center transition-colors text-on-surface-variant hover:text-on-surface" href="settings.html"><span class="material-symbols-outlined text-[24px]">settings</span><span class="font-label-sm text-[11px] mt-0.5 font-medium tracking-tight">ตั้งค่า</span></a></div></div></nav>
+
+<script>
+// โหลดข้อมูลสดจาก D1 ผ่าน API
+async function loadHomeDashboard() {
+  try {
+    const res = await fetch('/api/home');
+    const data = await res.json();
+
+    // 1. อัปเดตข้อความคำคมและชื่อการสอบ
+    if (data.dailyQuote) document.getElementById('quoteText').innerText = `“${data.dailyQuote}”`;
+    if (data.targetExamTitle) document.getElementById('targetExamTitleText').innerText = `${data.targetExamTitle} • ลุยทบทวนเลย!`;
+
+    // 2. ระบบนับถอยหลัง D-day แบบเรียลไทม์
+    const targetDate = new Date(data.targetExamDate || '2026-11-20T09:00:00Z').getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById('cdDays').innerText = String(days).padStart(2, '0');
+        document.getElementById('cdHours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('cdMinutes').innerText = String(minutes).padStart(2, '0');
+        document.getElementById('dDayBadge').innerText = `D-${days}`;
+      }
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+
+    // 3. เรนเดอร์การ์ดคอร์สและวิชา
+    const container = document.getElementById('courseContainer');
+    container.innerHTML = '';
+    (data.courses || []).forEach(c => {
+      const card = document.createElement('div');
+      card.className = `rounded-2xl p-3.5 text-white shadow-md bg-gradient-to-r ${c.color_gradient || 'from-[#9333ea] to-[#c026d3]'} flex items-center justify-between gap-3`;
+      card.innerHTML = `
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-1.5 opacity-90 text-[11px] font-medium">
+            <span class="material-symbols-outlined text-[16px]">school</span>
+            <span>คอร์ส</span>
+          </div>
+          <h4 class="font-headline-sm text-[18px] font-bold leading-tight mt-0.5">${c.title}</h4>
+          <button type="button" onclick="location.href='exam.html?subject=${c.id}'" class="mt-2 px-3 py-1 rounded-full bg-white text-stone-900 font-label-sm text-[11px] font-bold shadow-sm inline-flex items-center gap-1 active:scale-95">
+            <span>เริ่มเรียน</span>
+            <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+          </button>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <div class="bg-white rounded-xl p-2 px-2.5 text-center shadow-sm min-w-[70px]">
+            <div class="text-[10px] text-slate-500 font-medium leading-none">ตอบคำถามแล้ว</div>
+            <div class="text-[18px] font-extrabold text-[#ea580c] leading-tight mt-0.5">${c.total_answered}</div>
+            <div class="text-[10px] text-slate-400 font-medium leading-none">ข้อ</div>
+          </div>
+          <div class="bg-white rounded-xl p-2 px-2.5 text-center shadow-sm min-w-[70px]">
+            <div class="text-[10px] text-slate-500 font-medium leading-none">คะแนนล่าสุด</div>
+            <div class="text-[18px] font-extrabold text-[#059669] leading-tight mt-0.5">${c.latest_score > 0 ? c.latest_score : 'รอเริ่ม'}</div>
+            <div class="text-[10px] text-slate-400 font-medium leading-none">${c.latest_score > 0 ? '/ 100 คะแนน' : 'ทำข้อสอบ'}</div>
+          </div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+
+  } catch (err) {
+    console.error("Failed to load dashboard data:", err);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadHomeDashboard);
+</script>
+</body>
+</html>
